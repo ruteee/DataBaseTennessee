@@ -1,8 +1,13 @@
 % Base case initialization
 
+dist = zeros(1, 29);
+failures = zeros(1, 13);
+failures_values = zeros(1, 13);
+te_seed = [];
+
 u0=[63.053, 53.98, 24.644, 61.302, 22.21, 40.064, 38.10, 46.534, 47.446, 41.106, 18.114, 50];
     
-for i=1:12;
+for i=1:12
     iChar=int2str(i);
     eval(['xmv',iChar,'_0=u0(',iChar,');']);
 end
