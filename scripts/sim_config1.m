@@ -64,18 +64,20 @@ startTimeFail = 10;
 type_fail = [0,25,50,75,100];
 
 failures_active = [1 zeros(1,11)];
-sizeFailRep = 10;
+failures_values_active = zeros(1,12);
+sizeFailRep = 1;
 
 for indexModel=1:size(models,2)
     disp("init simulation");
-    for index_fail = 1:12
+    for index_fail = 1:1:size(failures_active, 2)
         failures = [0 zeros(1,12);[startTimeFail failures_active]];
         fail_path_folder = strcat(save_path_base,'failure_', int2str(index_fail),'/');
         mkdir(fail_path_folder);
         disp(strcat('Fail: ', int2str(index_fail)));
         for index_type_fail =1:size(type_fail,2)
-            fail_val= type_fail(index_type_fail);
-            failures_values = [startTimeFail fail_val zeros(1,11)];
+            fail_val = type_fail(index_type_fail);
+            failures_values_active(index_fail) = fail_val;
+            failures_values = [startTimeFail failures_values_active];
             disp(strcat('Fail Type: ', int2str(fail_val)));
             for index_fail_rep=1:sizeFailRep
                 te_seed = index_fail_rep;
@@ -93,7 +95,7 @@ for indexModel=1:size(models,2)
                 sim_id = sim_id + 1;
             end
         end
-        failures_values = circshift(failures_values,1);
+        failures_values_active(index_fail) = 0;
         failures_active = circshift(failures_active,1);
     end
     disp("end simulation");

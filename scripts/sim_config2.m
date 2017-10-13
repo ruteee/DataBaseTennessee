@@ -13,10 +13,11 @@ mkdir(save_path_base);
 
 %disturbances
 sizeRep = 1;
-startTime = 2;
-endTime = 48;
+startTimeDist = 2;
+endTimeDist = 48;
 failures = zeros(1,13);
 failures_values= zeros(1, 13);
+failures_values_active = zeros(1,12);
 dist_active = [1 zeros(1,27)];
 
 % Simulation ID
@@ -32,7 +33,7 @@ for indexModel=1:size(models,2)
         dist_path_folder = strcat(save_path_base,'dist', int2str(dist_index),'/');
         mkdir(dist_path_folder);
         disp(strcat('Dist: ', int2str(dist_index)));
-        dist = [0 zeros(1,28); [startTime dist_active]; [endTime zeros(1,28)]];
+        dist = [0 zeros(1,28); [startTimeDist dist_active]; [endTimeDist zeros(1,28)]];
         for index=1:sizeRep
             te_seed = index;
             sim_path = strcat('sim_', int2str(index));
@@ -44,7 +45,7 @@ for indexModel=1:size(models,2)
             
             % Save Current Simulation
             sims = [sims; sim_id, Ts_base, te_seed, 72];
-            sim_dists = [sim_dists; sim_id, dist_index, startTime, endTime];
+            sim_dists = [sim_dists; sim_id, dist_index, startTimeDist, endTimeDist];
             save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
             sim_id = sim_id + 1;
         end
@@ -72,8 +73,9 @@ for indexModels=1:size(models,2)
         mkdir(fail_path_folder);
         disp(strcat('Fail: ', int2str(index_fail)));
         for index_type_fail =1:size(type_fail,2)
-            fail_val= type_fail(index_type_fail);
-            failures_values = [startTimeFail fail_val zeros(1,11)];
+            fail_val = type_fail(index_type_fail);
+            failures_values_active(index_fail) = fail_val;
+            failures_values = [startTimeFail failures_values_active];
             disp(strcat('Fail Type: ', int2str(fail_val)));
             for index_fail_rep=1:sizeFailRep
                 te_seed = index_fail_rep;
@@ -91,7 +93,7 @@ for indexModels=1:size(models,2)
                 sim_id = sim_id + 1;
             end
         end
-        failures_values = circshift(failures_values,1);
+        failures_values_active(index_fail) = 0;
         failures_active = circshift(failures_active,1);
     end
     disp("end simulation");
