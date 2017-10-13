@@ -38,4 +38,4 @@ if ~ exist('sim_fails', 'var')
     sim_fails = [];
 end
 
-save([database_dir, 'reg_db.mat'], sims, dists, fails, sim_dists, sim_fails);
+save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
