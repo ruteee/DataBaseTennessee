@@ -6,6 +6,7 @@ init_dir      = [root_dir, '/init/'];
 models_dir    = [root_dir, '/models/'];
 scripts_dir   = [root_dir, '/scripts/'];
 sfunction_dir = [root_dir, '/s-function/'];
+data_dir      = [database_dir, 'data/'];
 
 % Gerar .mex para execução de simulação
 if exist([sfunction_dir, 'temexd_mod'], 'file') ~= 3
@@ -19,7 +20,7 @@ if exist('reg_db.mat', 'file')
 end
 
 if ~ exist('sims', 'var')
-    sims = [];
+    sims = zeros(0, 5);
 end
 
 if ~ exist('dists', 'var')
@@ -31,11 +32,11 @@ if ~ exist('fails', 'var')
 end
 
 if ~ exist('sim_dists', 'var')
-    sim_dists = [];
+    sim_dists = zeros(0, 4);
 end
 
 if ~ exist('sim_fails', 'var')
-    sim_fails = [];
+    sim_fails = zeros(0, 5);
 end
 
 save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
