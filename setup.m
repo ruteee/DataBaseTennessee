@@ -15,28 +15,38 @@ end
 
 % Load db registry
 % TODO load from CSV files
-if exist('reg_db.mat', 'file')
-    load('reg_db.mat');
+if exist([database_dir, 'sims.csv'], 'file')
+    sims = readtable([database_dir, 'sims.csv']);
+else
+    sims = cell2table(cell(0, 5), 'VariableNames', {'SIM_ID', 'TS_BASE', 'TS_SAVE', 'TE_SEED', 'DURATION'});
 end
 
-if ~ exist('sims', 'var')
-    sims = zeros(0, 5);
-end
-
-if ~ exist('dists', 'var')
+if exist([database_dir, 'dists.csv'], 'file')
+    dists = readtable([database_dir, 'dists.csv']);
+else
     define_dists
 end
 
-if ~ exist('fails', 'var')
+if exist([database_dir, 'fails.csv'], 'file')
+    fails = readtable([database_dir, 'fails.csv']);
+else
     define_fails
 end
 
-if ~ exist('sim_dists', 'var')
-    sim_dists = zeros(0, 4);
+if exist([database_dir, 'sim_dists.csv'], 'file')
+    sim_dists = readtable([database_dir, 'sim_dists.csv']);
+else
+    sim_dists = cell2table(cell(0, 4), 'VariableNames', {'SIM_ID', 'DIST_ID', 'START_TIME', 'END_TIME'});
 end
 
-if ~ exist('sim_fails', 'var')
-    sim_fails = zeros(0, 5);
+if exist([database_dir, 'sim_fails.csv'], 'file')
+    sim_fails = readtable([database_dir, 'sim_fails.csv']);
+else
+    sim_fails = cell2table(cell(0, 5), 'VariableNames', {'SIM_ID', 'FAIL_ID', 'VAL', 'START_TIME', 'END_TIME'});
 end
 
-save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
+% writetable(sims,      [database_dir, 'sims.csv']);
+writetable(dists,     [database_dir, 'dists.csv']);
+writetable(fails,     [database_dir, 'fails.csv']);
+% writetable(sim_dists, [database_dir, 'sim_dists.csv']);
+% writetable(sim_fails, [database_dir, 'sim_fails.csv']);

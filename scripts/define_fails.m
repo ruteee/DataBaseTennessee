@@ -1,13 +1,12 @@
 % TODO set right desription to fails
-fails = [ 1, "secure", "Lock";
-          2, "secure", "Lock";
-          3, "secure", "Lock";
-          4, "secure", "Lock";
-          5, "secure", "Lock";
-          6, "secure", "Lock";
-          7, "secure", "Lock";
-          8, "secure", "Lock";
-          9, "secure", "Lock";
-         10, "secure", "Lock";
-         11, "secure", "Lock";
-         12, "secure", "Lock"];
+ids = [1;2;3;4;5;6;7;8;9;10;11;12];
+from = ["SECURE";"SECURE";"SECURE";
+        "SECURE";"SECURE";"SECURE";
+        "SECURE";"SECURE";"SECURE";
+        "SECURE";"SECURE";"SECURE";];
+type = ["LOCK";"LOCK";"LOCK";
+        "LOCK";"LOCK";"LOCK";
+        "LOCK";"LOCK";"LOCK";
+        "LOCK";"LOCK";"LOCK";];
+fails = table(ids, from, type, 'VariableNames', {'ID', 'FROM', 'TYPE'});
+clearvars ids from type
