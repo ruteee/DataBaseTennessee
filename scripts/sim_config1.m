@@ -14,13 +14,13 @@ failures_values= zeros(1, 13);
 
 dist_active = [1 zeros(1,27)];
 startTimeDist = 10;
-sizeRep = 10;
+sizeRep = 1;
 
 % Simulation ID
 if isempty(sims)
     sim_id = 1;
 else
-    sim_id = sims(end, 1) + 1;
+    sim_id = sims.SIM_ID(end) + 1;
 end
 
 for indexModel=1:size(models,2)
@@ -32,13 +32,10 @@ for indexModel=1:size(models,2)
             te_seed = index;
             disp([sim_id, Ts_base, te_seed, 72, dist_index, startTimeDist, -1]);
             sim(models_dir + models(indexModel));
-            csvwrite([data_dir, '/simout_', mat2str(sim_id), '.csv'], simout);
-            csvwrite([data_dir, '/tout_', mat2str(sim_id), '.csv'], tout);
-            
+            writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);                        
             % Save Current Simulation
-            sims = [sims; sim_id, Ts_base, Ts_save, te_seed, 72];
-            sim_dists = [sim_dists; sim_id, dist_index, startTimeDist, -1];
-            save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
+            sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 72}];
+            sim_dists = [sim_dists; {sim_id, dist_index, startTimeDist, -1}];
             sim_id = sim_id + 1;
         end
         dist_active = circshift(dist_active,1);
@@ -55,7 +52,7 @@ type_fail = [0,25,50,75,100];
 
 failures_active = [1 zeros(1,11)];
 failures_values_active = zeros(1,12);
-sizeFailRep = 10;
+sizeFailRep = 1;
 
 for indexModel=1:size(models,2)
     disp("Init simulation");
@@ -71,13 +68,11 @@ for indexModel=1:size(models,2)
                 te_seed = index_fail_rep;
                 disp(strcat('sim_', int2str(index_fail_rep)));
                 sim(models_dir + models(indexModel));
-                csvwrite([data_dir, '/simout_', mat2str(sim_id), '.csv'], simout);
-                csvwrite([data_dir, '/tout_', mat2str(sim_id), '.csv'], tout);
+                writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);                               
                 
                 % Save Current Simulation
-                sims = [sims; sim_id, Ts_base, Ts_save, te_seed, 72];
-                sim_fails = [sim_fails; sim_id, index_fail, fail_val, startTimeFail, -1];
-                save([database_dir, 'reg_db.mat'], "sims", "dists", "fails", "sim_dists", "sim_fails");
+                sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 72}];
+                sim_fails = [sim_fails; {sim_id, index_fail, fail_val, startTimeFail, -1}];
                 sim_id = sim_id + 1;
             end
         end
@@ -86,3 +81,5 @@ for indexModel=1:size(models,2)
     end
     disp("end simulation");
 end
+
+save_db
