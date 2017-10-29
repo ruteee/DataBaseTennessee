@@ -21,7 +21,7 @@ for indexModel=1:size(models,2)
     for index=1:sizeRep
         te_seed = index;
         sim(models_dir + models(indexModel));
-        csvwrite([data_dir, '/simout_', mat2str(sim_id), '.csv'], [tout simout]);
+        writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);
         
         % Save Current Simulation
         sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 72}];

@@ -8,6 +8,12 @@ scripts_dir   = [root_dir, '/scripts/'];
 sfunction_dir = [root_dir, '/s-function/'];
 data_dir      = [database_dir, 'data/'];
 
+simout_header = {'tout'};
+
+for i=1:41
+    simout_header{i+1} = ['xmeas',mat2str(i)];
+end
+
 % Gerar .mex para execução de simulação
 if exist([sfunction_dir, 'temexd_mod'], 'file') ~= 3
     mex -outdir s-function s-function/temexd_mod.c;
