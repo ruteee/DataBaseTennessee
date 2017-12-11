@@ -12,7 +12,7 @@ models = ["MultiLoop_mode1"];
 failures = zeros(1, 13);
 failures_values= zeros(1, 13);
 
-dist_active = [1 zeros(1,27)];
+dist_base = [1 zeros(1,27)];
 startTimeDist = 10;
 sizeRep = 1;
 
@@ -26,19 +26,22 @@ end
 for indexModel=1:size(models,2)
     disp("Init simulation:");
     for dist_index = 1:28
-        dist = [zeros(1,29);[startTimeDist dist_active]];
         disp(strcat('Dist: ', int2str(dist_index)));
         for index=1:sizeRep
-            te_seed = index;
-            disp([sim_id, Ts_base, te_seed, 72, dist_index, startTimeDist, -1]);
-            sim(models_dir + models(indexModel));
-            writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);                        
-            % Save Current Simulation
-            sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 72}];
-            sim_dists = [sim_dists; {sim_id, dist_index, startTimeDist, -1}];
-            sim_id = sim_id + 1;
+            for f=.25:.25:1
+                te_seed = index;
+                dist_active = dist_base * f;
+                dist = [zeros(1,29); [startTimeDist dist_active]];
+                disp([sim_id, Ts_base, te_seed, 58, dist_index, startTimeDist, -1]);
+                sim(models_dir + models(indexModel));
+                writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);                        
+%                 Save Current Simulation
+                sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 58}];
+                sim_dists = [sim_dists; {sim_id, dist_index, f,startTimeDist, -1}];
+                sim_id = sim_id + 1;
+            end
         end
-        dist_active = circshift(dist_active,1);
+        dist_base = circshift(dist_base, 1);
     end
     disp("end simulation");
 end
@@ -71,7 +74,7 @@ for indexModel=1:size(models,2)
                 writetable(array2table([tout simout], 'VariableNames', simout_header), [data_dir, '/simout_', mat2str(sim_id), '.csv']);                               
                 
                 % Save Current Simulation
-                sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 72}];
+                sims = [sims; {sim_id, Ts_base, Ts_save, te_seed, 58}];
                 sim_fails = [sim_fails; {sim_id, index_fail, fail_val, startTimeFail, -1}];
                 sim_id = sim_id + 1;
             end

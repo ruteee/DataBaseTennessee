@@ -42,7 +42,7 @@ end
 if exist([database_dir, 'sim_dists.csv'], 'file')
     sim_dists = readtable([database_dir, 'sim_dists.csv']);
 else
-    sim_dists = cell2table(cell(0, 4), 'VariableNames', {'SIM_ID', 'DIST_ID', 'START_TIME', 'END_TIME'});
+    sim_dists = cell2table(cell(0, 4), 'VariableNames', {'SIM_ID', 'DIST_ID', 'DIST_VAL', 'START_TIME', 'END_TIME'});
 end
 
 if exist([database_dir, 'sim_fails.csv'], 'file')
