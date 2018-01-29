@@ -19,6 +19,11 @@ function [ setup ] = tennessee_setup( model, varargin )
     setup.model_set.end = p.Results.sim_end;
     setup.model_set.seed = p.Results.seed;
     setup.model_set.flag = p.Results.flag;
+    if mod(setup.model_set.flag, 2)
+       setup.model_set.qty_meas = 73;
+    else
+        setup.model_set.qty_meas = 41;
+    end
     setup.dist_set.id = p.Results.dist_id;
     setup.dist_set.start = p.Results.dist_start;
     setup.dist_set.end = p.Results.dist_end;
