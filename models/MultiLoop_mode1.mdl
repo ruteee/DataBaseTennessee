@@ -12,7 +12,7 @@ Model {
     }
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.173"
+    ComputedModelVersion    "1.174"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -30,7 +30,6 @@ Model {
   DiagnosticSuppressor	  "on"
   SuppressorTable	  "22 serialization::archive 11 0 6 0 0 0 11 0"
   SLCCPlugin		  "on"
-  PreLoadFcn		  "Mode_1_Init"
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
   DisableAllScopes	  off
@@ -76,25 +75,13 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1067.0, 516.0]
 	ZoomFactor		[1.0190274841437632]
-	Offset			[-68.362600492738579, 78.261410788381738]
+	Offset			[-68.362600492738579, 78.26141078838171]
       }
       Array {
 	Type			"Simulink.DockComponentInfo"
 	Dimension		2
 	Object {
 	  $ObjectID		  6
-	  Type			  "GLUE2:SpreadSheet"
-	  ID			  "ModelData"
-	  Visible		  [1]
-	  CreateCallback	  "DataView.createSpreadSheetComponent"
-	  UserData		  ""
-	  Floating		  [0]
-	  DockPosition		  "Bottom"
-	  Width			  [1101]
-	  Height		  [334]
-	}
-	Object {
-	  $ObjectID		  7
 	  Type			  "GLUE2:PropertyInspector"
 	  ID			  "Property Inspector"
 	  Visible		  [0]
@@ -104,6 +91,18 @@ Model {
 	  DockPosition		  "Right"
 	  Width			  [640]
 	  Height		  [480]
+	}
+	Object {
+	  $ObjectID		  7
+	  Type			  "GLUE2:SpreadSheet"
+	  ID			  "ModelData"
+	  Visible		  [1]
+	  CreateCallback	  "DataView.createSpreadSheetComponent"
+	  UserData		  ""
+	  Floating		  [0]
+	  DockPosition		  "Bottom"
+	  Width			  [1101]
+	  Height		  [334]
 	}
 	PropName		"DockComponentsInfo"
       }
@@ -125,9 +124,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "ryuga"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jan 25 09:04:29 2018"
-  RTWModifiedTimeStamp	  438771742
-  ModelVersionFormat	  "1.%<AutoIncrement:173>"
+  LastModifiedDate	  "Thu Feb 01 13:31:14 2018"
+  RTWModifiedTimeStamp	  439392672
+  ModelVersionFormat	  "1.%<AutoIncrement:174>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1231,7 +1230,7 @@ Model {
       ";1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannel"
       "Names',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plo"
       "t Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Ver"
-      "sion','2017a','Location',[101 680 453 983],'VisibleAtModelOpen','on','OpenAtMdlStart',true)"
+      "sion','2017a','Location',[101 736 443 1009],'VisibleAtModelOpen','on','OpenAtMdlStart',true)"
       NumInputPorts	      "1"
     }
     Block {
@@ -1645,7 +1644,7 @@ Model {
 	  "29411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470"
 	  "58823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
 	  "')),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measureme"
-	  "nts',true,'Version','2017a')),'Version','2017a','Location',[101 265 457 594],'VisibleAtModelOpen','on','OpenAtMdlSt"
+	  "nts',true,'Version','2017a')),'Version','2017a','Location',[101 321 447 620],'VisibleAtModelOpen','on','OpenAtMdlSt"
 	  "art',true)"
 	  NumInputPorts		  "1"
 	}
@@ -4291,8 +4290,8 @@ Model {
 	  "3921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCa"
 	  "che',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr."
 	  "Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Too"
-	  "ls','Measurements',true,'Version','2017a')),'Version','2017a','Location',[458 679 815 981],'VisibleAtModelOpen','on"
-	  "','OpenAtMdlStart',true)"
+	  "ls','Measurements',true,'Version','2017a')),'Version','2017a','Location',[458 735 805 1007],'VisibleAtModelOpen','o"
+	  "n','OpenAtMdlStart',true)"
 	  NumInputPorts		  "1"
 	}
 	Block {
@@ -5059,7 +5058,7 @@ Model {
 	  "529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Li"
 	  "nePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
 	  "t',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measur"
-	  "ements',true,'Version','2017a')),'Version','2017a','Location',[460 266 815 593],'VisibleAtModelOpen','on','OpenAtMd"
+	  "ements',true,'Version','2017a')),'Version','2017a','Location',[460 322 805 619],'VisibleAtModelOpen','on','OpenAtMd"
 	  "lStart',true)"
 	  NumInputPorts		  "1"
 	}

@@ -1,6 +1,7 @@
 dir.root      = pwd;
-dir.alarm_gen = [dir.root, 'alarm_gen/'];
-dir.functions = [dir.root, 'functions/'];
+dir.alarm_gen = [dir.root, '/alarm_gen/'];
+dir.threshold = [dir.root, '/threshold data/'];
+dir.functions = [dir.root, '/functions/'];
 dir.init      = [dir.root, '/init/'];
 dir.models    = [dir.root, '/models/'];
 dir.scripts   = [dir.root, '/scripts/'];
