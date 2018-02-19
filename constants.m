@@ -1,10 +1,13 @@
-dir.root      = pwd;
-dir.alarm_gen = [dir.root, '/alarm_gen/'];
-dir.threshold = [dir.root, '/threshold data/'];
-dir.functions = [dir.root, '/functions/'];
-dir.init      = [dir.root, '/init/'];
-dir.models    = [dir.root, '/models/'];
-dir.scripts   = [dir.root, '/scripts/'];
-dir.sfunction = [dir.root, '/s-function/'];
+global PATHS;
+global model_structure_flag;
 
-model_structure_flag = bi2de([1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0]);
+PATHS.root      = pwd;
+PATHS.alarm_gen = [PATHS.root, '/alarm_gen/'];
+PATHS.threshold = [PATHS.root, '/threshold data/'];
+PATHS.functions = [PATHS.root, '/functions/'];
+PATHS.init      = [PATHS.root, '/init/'];
+PATHS.models    = [PATHS.root, '/models/'];
+PATHS.scripts   = [PATHS.root, '/scripts/'];
+PATHS.sfunction = [PATHS.root, '/s-function/'];
+
+model_structure_flag = bi2de([1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0]);

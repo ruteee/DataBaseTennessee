@@ -1,13 +1,14 @@
 function [ setup ] = tennessee_setup( model, varargin )
 %TENNESSEE_SETUP Summary of this function goes here
 %   Detailed explanation goes here
-
+    global model_structure_flag;
+    
     p = inputParser;
     addRequired(p, 'model');
     addParameter(p, 'sim_start', 0);
     addParameter(p, 'sim_end', 58);
     addParameter(p, 'seed', 1);
-    addParameter(p, 'flag', 129);
+    addParameter(p, 'flag', model_structure_flag);
     addParameter(p, 'dist_id', -1);
     addParameter(p, 'dist_start', -1);
     addParameter(p, 'dist_end', -1);
