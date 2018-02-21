@@ -18,18 +18,19 @@ function [ thresholds ] = get_sigma_threshold( model, flag )
         high_threshold = mi + 3 * sig;
         
         thresholds = struct();
-        for i = 1:length(low_threshold)
+        qty_vars = length(low_threshold);
+        for i = 1:qty_vars
             thresholds(i).proc_var = i;
             thresholds(i).limit = low_threshold(i);
-            thresholds(i).type = 'LOW';
+            thresholds(i).type = "LOW";
             thresholds(i).dead_band = NaN;
             thresholds(i).delay_time = NaN;
             
-            thresholds(i+1).proc_var = i;
-            thresholds(i+1).limit = high_threshold(i);
-            thresholds(i+1).type = 'HIGH';
-            thresholds(i+1).dead_band = NaN;
-            thresholds(i+1).delay_time = NaN;
+            thresholds(i+qty_vars).proc_var = i;
+            thresholds(i+qty_vars).limit = high_threshold(i);
+            thresholds(i+qty_vars).type = "HIGH";
+            thresholds(i+qty_vars).dead_band = NaN;
+            thresholds(i+qty_vars).delay_time = NaN;
         end
         
         writetable(struct2table(thresholds), out_file_name);

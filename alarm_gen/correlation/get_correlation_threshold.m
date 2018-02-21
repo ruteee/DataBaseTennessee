@@ -84,9 +84,9 @@ function [ thresholds ] = get_correlation_threshold( model, flag, corr_threshold
             thresholds(i).proc_var = vars(i);
             thresholds(i).limit = threshold_limits(i);
             if threshold_limits(i) > normal_mean(vars(i))
-                thresholds(i).type = 'HIGH';
+                thresholds(i).type = "HIGH";
             else
-                thresholds(i).type = 'LOW';
+                thresholds(i).type = "LOW";
             end
             thresholds(i).dead_band = NaN;
             thresholds(i).delay_time = NaN; 
