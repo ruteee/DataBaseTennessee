@@ -94,7 +94,7 @@ function [ thresholds ] = get_correlation_threshold( model, flag, corr_threshold
         
         writetable(struct2table(thresholds), out_file_name);
     else 
-        thresholds = table2struct(readtable(out_file_name));
+        thresholds = table2struct(readtable(out_file_name, 'TextType', 'string'));
     end
 
 end

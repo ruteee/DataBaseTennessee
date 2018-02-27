@@ -35,6 +35,6 @@ function [ thresholds ] = get_sigma_threshold( model, flag )
         
         writetable(struct2table(thresholds), out_file_name);
     else 
-        thresholds = table2struct(readtable(out_file_name));
+        thresholds = table2struct(readtable(out_file_name, 'TextType', 'string'));
     end
 end

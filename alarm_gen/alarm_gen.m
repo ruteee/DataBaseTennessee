@@ -8,7 +8,7 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
                 thresholds = get_sigma_threshold(te_set.model_set.model, ...
                                                               te_set.model_set.flag);
             case "CORR"
-                thresholds = get_corr_threshold(te_set.model_set.model, ...
+                thresholds = get_correlation_threshold(te_set.model_set.model, ...
                                                                      te_set.model_set.flag);
             case "FAP-MAP"
                 thresholds = get_fap_map_threshold(te_set.model_set.model, ...
@@ -24,25 +24,24 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
         case "LOG"
             alm_state = [alm_seq(1,:), ;diff(alm_seq)];
 
-            [alm_time, alm_var, alm_state] = find(alm_state);
+            [alm_time, i_alm_var, alm_state] = find(alm_state);
 
             alm_time = process.tout(alm_time);
-            alm_var = [thresholds(alm_var).proc_var]';
+            alm_var = [thresholds(i_alm_var).proc_var]';
             
             alarm_table = table;
             alarm_table.TIME = alm_time;
             alarm_table.TAG = get_tag(alm_var);
             alarm_table.TAG_DESC = get_tag_desc(alm_var);
-            alarm_table.ALARM = [thresholds(alm_var).type]';
-            alarm_table.ALARM_DESC = [thresholds(alm_var).type]';
+            alarm_table.ALARM = [thresholds(i_alm_var).type]';
+            alarm_table.ALARM_DESC = [thresholds(i_alm_var).type]';
             alarm_table.STATE = get_state(alm_state);
             alarm_table = sortrows(alarm_table, 'TIME');
             alarm_table.TIME = string(datetime('now', 'Format', 'd-MM-y HH:mm:ss.ms') ...
                                + hours(alarm_table.TIME));
             data.log = alarm_table;
         case "ALM_SEQ"
-            alarm_seq_header = ['tout', compose('xmeas%02d_low',1:te_set.model_set.qty_meas), compose('xmeas%02d_high',1:te_set.model_set.qty_meas)];
-            data.alm_seq = array2table([process.tout low_seq high_seq], 'VariableNames', alarm_seq_header);
+            data.alm_seq = alarm_table;
     end
     
     if save_process
