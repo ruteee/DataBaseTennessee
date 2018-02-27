@@ -41,7 +41,7 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
             alarm_table.ALARM_DESC = [thresholds(i_alm_var).type]';
             alarm_table.STATE = get_state(alm_state);
             alarm_table = sortrows(alarm_table, 'TIME');
-            alarm_table.TIME = string(datetime('now', 'Format', 'd-MM-y HH:mm:ss.ms') ...
+            alarm_table.TIME = string(datetime('now', 'Format', 'y-MM-d HH:mm:ss.ms') ...
                                + hours(alarm_table.TIME));
             data.log = alarm_table;
         case "ALM_SEQ"
@@ -50,7 +50,8 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
     
     if save_process
         simout_header = ['tout', compose('xmeas%02d',1:te_set.model_set.qty_meas)];
-        data.process = array2table([process.tout process.simout], 'VariableNames', simout_header);
+        time_out = posixtime(datetime('now') + hours(process.tout));
+        data.process = array2table([time_out process.simout], 'VariableNames', simout_header);
     end
     
 end
