@@ -1,4 +1,4 @@
-function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method, thresholds )
+function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method, process_data )
 %ALARM_GEN Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -16,7 +16,11 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
         end
     end
     
-    process = run_simulation(te_set);
+    if exist("process_data", "var")
+        process = process_data;
+    else
+        process = run_simulation(te_set);
+    end
     
     alm_seq = apply_threshold(process.simout, thresholds);
     
@@ -41,7 +45,7 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
                                + hours(alarm_table.TIME));
             data.log = alarm_table;
         case "ALM_SEQ"
-            data.alm_seq = alarm_table;
+            data.alm_seq = alm_seq;
     end
     
     if save_process
