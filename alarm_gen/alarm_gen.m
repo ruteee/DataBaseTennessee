@@ -1,8 +1,8 @@
-function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method, process_data )
+function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method, process_data, thresholds )
 %ALARM_GEN Summary of this function goes here
 %   Detailed explanation goes here
 
-    if ~exist("threshold", "var")
+    if ~exist("thresholds", "var")
         switch threshold_method
             case "3SIG"
                 thresholds = get_sigma_threshold(te_set.model_set.model, ...
@@ -24,8 +24,10 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
     
     alm_seq = apply_threshold(process.simout, thresholds);
     
-    switch out_mode
-        case "LOG"
+    time_out = posixtime(datetime('now') + hours(process.tout));
+    
+%     switch out_mode
+%         case "LOG"
             alm_state = [alm_seq(1,:), ;diff(alm_seq)];
 
             [alm_time, i_alm_var, alm_state] = find(alm_state);
@@ -44,13 +46,15 @@ function [ data ] = alarm_gen( out_mode, save_process, te_set, threshold_method,
             alarm_table.TIME = string(datetime('now', 'Format', 'y-MM-d HH:mm:ss.ms') ...
                                + hours(alarm_table.TIME));
             data.log = alarm_table;
-        case "ALM_SEQ"
-            data.alm_seq = alm_seq;
-    end
+%         case "ALM_SEQ"
+            alm_header = ['tout', compose('xmeas%02d_low',1:te_set.model_set.qty_meas), compose('xmeas%02d_high',1:te_set.model_set.qty_meas)];
+%             time_out = posixtime(datetime('now') + hours(process.tout));
+            data.alm_seq = array2table([time_out alm_seq], 'VariableNames', alm_header);
+%     end
     
     if save_process
         simout_header = ['tout', compose('xmeas%02d',1:te_set.model_set.qty_meas)];
-        time_out = posixtime(datetime('now') + hours(process.tout));
+%         time_out = posixtime(datetime('now') + hours(process.tout));
         data.process = array2table([time_out process.simout], 'VariableNames', simout_header);
     end
     
