@@ -12,7 +12,7 @@ Model {
     }
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.174"
+    ComputedModelVersion    "1.176"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -49,7 +49,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [2735.0, 24.0, 1105.0, 1056.0]
+      Location		      [83.0, 24.0, 1085.0, 1056.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -71,11 +71,11 @@ Model {
 	$ObjectID		5
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
-	ViewObjType		"SimulinkTopLevel"
-	LoadSaveID		"0"
-	Extents			[1067.0, 516.0]
-	ZoomFactor		[1.0190274841437632]
-	Offset			[-68.362600492738579, 78.26141078838171]
+	ViewObjType		"SimulinkSubsys"
+	LoadSaveID		"31"
+	Extents			[1047.0, 516.0]
+	ZoomFactor		[2.0]
+	Offset			[277.60242831632672, 252.32210112598577]
       }
       Array {
 	Type			"Simulink.DockComponentInfo"
@@ -101,7 +101,7 @@ Model {
 	  UserData		  ""
 	  Floating		  [0]
 	  DockPosition		  "Bottom"
-	  Width			  [1101]
+	  Width			  [1081]
 	  Height		  [334]
 	}
 	PropName		"DockComponentsInfo"
@@ -110,7 +110,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAQQAAA8kAAABiAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAADAAAEUQAAAWX8AQAAAAH7/////wEAAAAAAAAEUQAAAPoA////AAAEUQAAAkIAAAABAAAAAgAAA"
+      "QBjAHQAbwByAAAAAAD/////AAAALAD///8AAAADAAAEPQAAAWX8AQAAAAH7/////wEAAAAAAAAEPQAAAPoA////AAAEPQAAAkIAAAABAAAAAgAAA"
       "AEAAAAC/AAAAAEAAAACAAAAD/////8AAAAAAP////8AAAAAAAAAAP////8BAAAAAP////8AAAAAAAAAAP////8AAAAAAP////8AAAAAAAAAAP///"
       "/8AAAAAAP////8AAAAAAAAAAP////8AAAAAAP////8AAAAAAAAAAP////8BAAAAgP////8AAAAAAAAAAP////8BAAAA6P////8AAAAAAAAAAP///"
       "/8AAAAAAP////8AAAAAAAAAAP////8BAAABaP////8AAAAAAAAAAP////8AAAAAAP////8AAAAAAAAAAP////8AAAAAAP////8AAAAAAAAAAP///"
@@ -124,9 +124,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "ryuga"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 01 13:31:14 2018"
-  RTWModifiedTimeStamp	  439392672
-  ModelVersionFormat	  "1.%<AutoIncrement:174>"
+  LastModifiedDate	  "Sat Mar 31 11:02:29 2018"
+  RTWModifiedTimeStamp	  444394945
+  ModelVersionFormat	  "1.%<AutoIncrement:176>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1181,8 +1181,8 @@ Model {
   }
   System {
     Name		    "MultiLoop_mode1"
-    Location		    [2735, 24, 3840, 1080]
-    Open		    on
+    Location		    [83, 24, 1168, 1080]
+    Open		    off
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1194,9 +1194,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "102"
+    ZoomFactor		    "50"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "592"
+    SIDHighWatermark	    "594"
     Block {
       BlockType		      Inport
       Name		      "Disturbances"
@@ -1230,7 +1230,7 @@ Model {
       ";1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannel"
       "Names',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr.Configuration('Tools','Plo"
       "t Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measurements',true,'Version','2017a')),'Ver"
-      "sion','2017a','Location',[101 736 443 1009],'VisibleAtModelOpen','on','OpenAtMdlStart',true)"
+      "sion','2017a','Location',[101 764 443 1037],'OpenAtMdlStart',true)"
       NumInputPorts	      "1"
     }
     Block {
@@ -1644,8 +1644,7 @@ Model {
 	  "29411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176470"
 	  "58823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>"
 	  "')),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measureme"
-	  "nts',true,'Version','2017a')),'Version','2017a','Location',[101 321 447 620],'VisibleAtModelOpen','on','OpenAtMdlSt"
-	  "art',true)"
+	  "nts',true,'Version','2017a')),'Version','2017a','Location',[101 349 447 648],'OpenAtMdlStart',true)"
 	  NumInputPorts		  "1"
 	}
 	Line {
@@ -1791,8 +1790,8 @@ Model {
       Variant		      off
       System {
 	Name			"TE Plant"
-	Location		[2735, 24, 3840, 1080]
-	Open			off
+	Location		[83, 24, 1168, 1080]
+	Open			on
 	PortBlocksUseCompactNotation off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1804,7 +1803,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"80"
+	ZoomFactor		"200"
 	Block {
 	  BlockType		  Inport
 	  Name			  "Production Setpoint"
@@ -4290,8 +4289,7 @@ Model {
 	  "3921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCa"
 	  "che',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placement',1)),extmgr."
 	  "Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),extmgr.Configuration('Too"
-	  "ls','Measurements',true,'Version','2017a')),'Version','2017a','Location',[458 735 805 1007],'VisibleAtModelOpen','o"
-	  "n','OpenAtMdlStart',true)"
+	  "ls','Measurements',true,'Version','2017a')),'Version','2017a','Location',[453 738 800 1010],'OpenAtMdlStart',true)"
 	  NumInputPorts		  "1"
 	}
 	Block {
@@ -5025,7 +5023,7 @@ Model {
 	  BlockType		  S-Function
 	  Name			  "TE Code"
 	  SID			  "248"
-	  Ports			  [1, 1]
+	  Ports			  [1, 2]
 	  Position		  [550, 332, 625, 368]
 	  ZOrder		  2
 	  FunctionName		  "temexd_mod"
@@ -5058,8 +5056,7 @@ Model {
 	  "529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>','Li"
 	  "nePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Placemen"
 	  "t',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false),extmgr.Configuration('Tools','Measur"
-	  "ements',true,'Version','2017a')),'Version','2017a','Location',[460 322 805 619],'VisibleAtModelOpen','on','OpenAtMd"
-	  "lStart',true)"
+	  "ements',true,'Version','2017a')),'Version','2017a','Location',[460 350 805 647],'OpenAtMdlStart',true)"
 	  NumInputPorts		  "1"
 	}
 	Block {
@@ -5146,7 +5143,7 @@ Model {
 	  ZOrder		  5
 	  SrcBlock		  "TE Code"
 	  SrcPort		  1
-	  Points		  [25, 0]
+	  Points		  [0, 10; 25, 0]
 	  Branch {
 	    ZOrder		    6
 	    Points		    [0, -80]
@@ -6552,7 +6549,7 @@ Model {
       ZOrder		      1
       SrcBlock		      "TE Plant"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [0, 0; 10, 0]
       Branch {
 	ZOrder			2
 	DstBlock		"To Workspace"
@@ -6618,7 +6615,7 @@ Model {
       ZOrder		      11
       SrcBlock		      "TE Plant"
       SrcPort		      2
-      Points		      [15, 0]
+      Points		      [0, 0; 15, 0]
       Branch {
 	ZOrder			12
 	DstBlock		"To Workspace1"
@@ -6635,6 +6632,7 @@ Model {
       ZOrder		      14
       SrcBlock		      "TE Plant"
       SrcPort		      3
+      Points		      [0, 0]
       DstBlock		      "To Workspace2"
       DstPort		      1
     }
