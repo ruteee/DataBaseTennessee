@@ -20,3 +20,11 @@ octave-workspace
 
 # Simulink autosave extension
 *.autosave
+
+
+.ipynb_checkpoints/
+__pycache__/
+
+
+# Data folder
+data/*
