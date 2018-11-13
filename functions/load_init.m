@@ -20,4 +20,3 @@ function [ in ] = load_init( model, in)
     end
 
 end
-

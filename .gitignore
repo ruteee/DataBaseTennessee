@@ -24,3 +24,7 @@ octave-workspace
 
 .ipynb_checkpoints/
 __pycache__/
+
+
+# Data folder
+data/*

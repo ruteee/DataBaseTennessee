@@ -1,6 +1,7 @@
 function [ sim_out ] = run_simulation( te_set )
 %RUN_SIMULATION Summary of this function goes here
 %   Detailed explanation goes here
+
     model = te_set.model_set.model;
     in = Simulink.SimulationInput(model);
     
